@@ -1,7 +1,25 @@
 name: Action Workflow
 on: 
-  repository_dispatch: 
-    types: [build]
+  push:
+    branches:
+      - master
+      - 'feature/*'
+      - 'feature/**'
+      - '!feature/featc'
+    #branches-ignore:
+    #  - null
+    tags:
+      - v1.*
+    #tags-ignore:
+    #  - null    
+    paths:
+      - '**.js'
+      - '!filename.js'
+    #paths-ignore:
+    #  - 'docs/**'
+
+  #repository_dispatch: 
+  #  types: [build]
   #schedule:
   #  - cron: "0/5 * * * *"
   #  - cron: "0/6 * * * *"
